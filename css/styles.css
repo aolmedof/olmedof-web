@@ -835,6 +835,24 @@ img { max-width: 100%; }
   color: var(--text-primary);
 }
 
+.whatsapp-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.whatsapp-numbers a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color var(--transition);
+}
+
+.whatsapp-numbers a:hover {
+  color: #25D366;
+}
+
 .contact-form {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);

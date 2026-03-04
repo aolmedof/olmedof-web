@@ -14,7 +14,7 @@ const certs = [
     period: '2022 – 2025',
     color: '#FF9900',
     icon: 'fa-brands fa-aws',
-    url: 'https://aws.amazon.com/certification/verify',
+    url: 'https://www.credly.com/users/aolmedof',
   },
   {
     name: 'AWS Developer Associate',
@@ -23,7 +23,7 @@ const certs = [
     period: '2023 – 2026',
     color: '#FF9900',
     icon: 'fa-brands fa-aws',
-    url: 'https://aws.amazon.com/certification/verify',
+    url: 'https://www.credly.com/users/aolmedof',
   },
   {
     name: 'AWS Security Specialty',
@@ -32,7 +32,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#FF9900',
     icon: 'fa-brands fa-aws',
-    url: 'https://aws.amazon.com/certification/verify',
+    url: 'https://www.credly.com/users/aolmedof',
   },
   {
     name: 'AWS Machine Learning Specialty',
@@ -41,7 +41,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#FF9900',
     icon: 'fa-brands fa-aws',
-    url: 'https://aws.amazon.com/certification/verify',
+    url: 'https://www.credly.com/users/aolmedof',
   },
   {
     name: 'Associate Cloud Engineer',
@@ -50,7 +50,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#4285F4',
     icon: 'fa-brands fa-google',
-    url: 'https://cloud.google.com/certification/verify',
+    url: 'https://www.credential.net/',
   },
   {
     name: 'Professional Cloud Architect',
@@ -59,7 +59,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#4285F4',
     icon: 'fa-brands fa-google',
-    url: 'https://cloud.google.com/certification/verify',
+    url: 'https://www.credential.net/',
   },
   {
     name: 'Professional Cloud Security Engineer',
@@ -68,7 +68,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#4285F4',
     icon: 'fa-brands fa-google',
-    url: 'https://cloud.google.com/certification/verify',
+    url: 'https://www.credential.net/',
   },
   {
     name: 'Azure Administrator Associate',
@@ -77,7 +77,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#0078D4',
     icon: 'fa-brands fa-microsoft',
-    url: 'https://learn.microsoft.com/en-us/certifications/verify',
+    url: 'https://learn.microsoft.com/en-us/users/aolmedof/credentials',
   },
   {
     name: 'Azure Security Engineer',
@@ -86,7 +86,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#0078D4',
     icon: 'fa-brands fa-microsoft',
-    url: 'https://learn.microsoft.com/en-us/certifications/verify',
+    url: 'https://learn.microsoft.com/en-us/users/aolmedof/credentials',
   },
   {
     name: 'Terraform Associate',
@@ -95,7 +95,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#7B42BC',
     icon: 'fa-solid fa-cube',
-    url: 'https://www.credly.com',
+    url: 'https://www.credly.com/users/aolmedof',
   },
   {
     name: 'Certified Kubernetes Administrator (CKA)',
@@ -104,7 +104,7 @@ const certs = [
     period: '2024 – 2027',
     color: '#326CE5',
     icon: 'fa-brands fa-linux',
-    url: 'https://training.linuxfoundation.org/certification/verify',
+    url: 'https://www.credly.com/users/aolmedof',
   },
 ];
 
@@ -481,20 +481,12 @@ function setupCVButton() {
   if (!btn) return;
 
   btn.addEventListener('click', e => {
-    // Check if the CV file exists by making a HEAD request
-    fetch(btn.href, { method: 'HEAD' })
-      .then(res => {
-        if (!res.ok) throw new Error('not found');
-        // File exists — allow the default download to proceed
-      })
-      .catch(() => {
-        e.preventDefault();
-        const msg =
-          currentLang === 'en'
-            ? 'CV coming soon — contact me directly at arturo.olmedof@hotmail.com'
-            : 'CV próximamente — contáctame directamente en arturo.olmedof@hotmail.com';
-        showToast(msg);
-      });
+    e.preventDefault();
+    const msg =
+      currentLang === 'en'
+        ? 'CV available soon — contact me directly at arturo.olmedof@hotmail.com'
+        : 'CV disponible pronto — contáctame directamente en arturo.olmedof@hotmail.com';
+    showToast(msg);
   });
 }
 
