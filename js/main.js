@@ -69,7 +69,7 @@ const certGroups = [
       },
       {
         name: 'Professional Cloud Security Engineer',
-        badge: 'img/badges/gcp-professional-cloud-security-engineer.svg',
+        badge: 'img/badges/gcp-professional-cloud-security-engineer.png',
         type: 'in-progress',
         certId: null,
         url: null,
@@ -320,12 +320,7 @@ function renderCertifications(t) {
 
     const cards = group.certs.map((cert, ci) => {
       const tl = typeLabel[cert.type];
-      const verifyBtn = cert.url
-        ? `<a href="${cert.url}" target="_blank" rel="noopener noreferrer"
-              class="cert-verify" style="border-color:${group.color}; color:${group.color};">
-              ${t.certifications.verify} <i class="fa-solid fa-arrow-up-right-from-square"></i>
-           </a>`
-        : '';
+      const verifyBtn = '';
       const periodHtml = cert.period
         ? `<p class="cert-period"><i class="fa-regular fa-calendar"></i> ${cert.period}</p>`
         : '';
