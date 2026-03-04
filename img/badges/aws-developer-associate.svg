@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
-  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a1a2e"/><stop offset="100%" style="stop-color:#252545"/></linearGradient></defs>
-  <rect width="340" height="340" rx="20" fill="url(#g)"/>
-  <circle cx="170" cy="170" r="148" fill="none" stroke="#FF9900" stroke-width="6" stroke-dasharray="16 8"/>
-  <text x="170" y="128" font-family="Arial" font-size="44" font-weight="bold" text-anchor="middle" fill="#FF9900">AWS</text>
-  <text x="170" y="176" font-family="Arial" font-size="22" font-weight="bold" text-anchor="middle" fill="#fff">Certified</text>
-  <text x="170" y="212" font-family="Arial" font-size="19" text-anchor="middle" fill="#ddd">Developer</text>
-  <text x="170" y="244" font-family="Arial" font-size="17" text-anchor="middle" fill="#aaa">Associate</text>
-</svg>

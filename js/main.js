@@ -22,7 +22,7 @@ const certGroups = [
       },
       {
         name: 'AWS Developer Associate',
-        badge: 'img/badges/aws-developer-associate.svg',
+        badge: 'img/badges/aws-developer-associate.png',
         type: 'official',
         certId: 'J1SXM1T2VNVQQ5G3',
         url: 'https://www.credly.com/users/aolmedof',
@@ -38,7 +38,7 @@ const certGroups = [
       },
       {
         name: 'AWS Machine Learning Specialty',
-        badge: 'img/badges/aws-machine-learning-specialty.svg',
+        badge: 'img/badges/aws-machine-learning-specialty.png',
         type: 'course',
         certId: 'UC-73f20cb8-bf4e-4d27-b024-ec7e075b1db9',
         url: 'https://www.udemy.com/certificate/UC-73f20cb8-bf4e-4d27-b024-ec7e075b1db9/',
