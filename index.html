@@ -48,7 +48,7 @@
   ═══════════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Arturo<span>.dev</span></a>
+      <a href="#hero" class="nav-logo">Arturo<span> Olmedo</span></a>
 
       <ul id="nav-menu" role="list">
         <li><a href="#about"          class="nav-link" data-i18n="nav.about">About</a></li>
@@ -127,16 +127,29 @@
           <i class="fa-solid fa-robot"></i>
           <span class="ai-prompt-title">Ask me anything about Arturo</span>
           <span class="ai-powered-badge">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Powered by Claude AI
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Arturo's ML/AI-model
           </span>
         </div>
+
+        <!-- Chat history bubbles -->
+        <div id="chat-history" class="chat-history" role="log" aria-live="polite"></div>
+
+        <!-- Quick suggestions -->
+        <div class="quick-suggestions" id="quick-suggestions">
+          <button class="quick-btn" data-key="years"  data-q="How many years of experience does Arturo have?">Years of experience?</button>
+          <button class="quick-btn" data-key="certs"  data-q="What certifications does Arturo have?">Certifications</button>
+          <button class="quick-btn" data-key="stack"  data-q="What is his tech stack?">Tech stack</button>
+          <button class="quick-btn" data-key="visa"   data-q="Does Arturo have EU work visa?">Visa status</button>
+        </div>
+
+        <!-- Input -->
         <div class="ai-input-wrapper">
           <input type="text" id="ai-input" autocomplete="off" aria-label="Ask a question" />
           <button id="ai-send" aria-label="Send">
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </div>
-        <div id="ai-response" class="ai-response" hidden></div>
+        <div class="ai-rate-info" id="ai-rate-info"></div>
       </div>
     </div>
   </section>
@@ -151,10 +164,6 @@
         <div class="about-photo-wrapper" data-aos="fade-right">
           <img src="img/profile_photo.jpeg" alt="Arturo O. Flores" class="about-photo-img" />
           <div class="about-badges">
-            <div class="about-badge">
-              <i class="fa-solid fa-location-dot"></i>
-              <span data-i18n="about.location">Based in Spain &amp; Poland</span>
-            </div>
             <div class="about-badge">
               <i class="fa-solid fa-circle-check"></i>
               <span data-i18n="about.availability">Open to global opportunities</span>
@@ -294,20 +303,12 @@
             <div>
               <div class="contact-item-label" data-i18n="contact.whatsapp_label">WhatsApp</div>
               <div class="whatsapp-numbers">
-                <a href="https://wa.me/525525284606" target="_blank" rel="noopener noreferrer">🇲🇽 +52 55 2528 4606</a>
                 <a href="https://wa.me/34607528917"  target="_blank" rel="noopener noreferrer">🇪🇸 +34 607 528 917</a>
                 <a href="https://wa.me/48733812648"  target="_blank" rel="noopener noreferrer">🇵🇱 +48 733 812 648</a>
               </div>
             </div>
           </div>
 
-          <div class="contact-item">
-            <div class="contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <div class="contact-item-label" data-i18n="contact.location_label">Location</div>
-              <div class="contact-item-value" data-i18n="contact.location_value">Spain &amp; Poland</div>
-            </div>
-          </div>
         </div>
 
         <form id="contact-form" class="contact-form" data-aos="fade-left" novalidate>
@@ -379,6 +380,12 @@
 
   <!-- Translations -->
   <script src="js/translations.js"></script>
+
+  <!-- Bot Knowledge Base -->
+  <script src="js/bot-knowledge.js"></script>
+
+  <!-- Bot Engine -->
+  <script src="js/bot-engine.js"></script>
 
   <!-- Main JS -->
   <script src="js/main.js"></script>

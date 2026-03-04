@@ -27,7 +27,6 @@ const translations = {
       title: 'About Me',
       subtitle: 'Passionate about building scalable, secure cloud systems',
       text: 'Multi-Cloud DevOps/MLOps & Infrastructure Engineer, Cloud Solution Architect, and CyberSecurity Specialist with deep expertise in designing, deploying, and managing scalable distributed systems. I work under the Well-Architected Framework across AWS, Azure, GCP, and Oracle Cloud, specializing in performance efficiency, cost optimization, and the deployment of robust hybrid infrastructures. Proficient in CI/CD pipelines, infrastructure-as-code, container orchestration, and MLOps frameworks. Strong background in Linux/Unix systems and both relational and non-relational databases.',
-      location: 'Based in Spain & Poland',
       availability: 'Open to global opportunities',
     },
     experience: {
@@ -36,7 +35,8 @@ const translations = {
       jobs: [
         {
           role: 'MLOps/DevOps Engineer & Cloud Solution Architect',
-          company: 'B2B Contractor (HSBC & DSV)',
+          company: 'B2B Contractor',
+          industries: 'Banking · Financial Services · Logistics · Supply Chain',
           period: 'Oct 2022 – Present',
           location: 'Poland / Spain',
           highlights: [
@@ -56,6 +56,7 @@ const translations = {
         {
           role: 'DevOps Engineer & Cloud Solution Architect',
           company: 'Tata Consultancy Services (TCS)',
+          industries: 'IT Consulting · Technology Services · Enterprise Solutions',
           period: 'Aug 2020 – Oct 2022',
           location: 'Remote',
           highlights: [
@@ -71,6 +72,7 @@ const translations = {
         {
           role: 'DevOps Engineer Manager & Cloud Engineer',
           company: 'Equifax',
+          industries: 'Financial Services · Credit & Risk · Data Analytics',
           period: 'Jun 2018 – Feb 2020',
           location: 'Remote',
           highlights: [
@@ -87,6 +89,7 @@ const translations = {
         {
           role: 'Software Developer & Database Support Engineer',
           company: 'Mondelez International',
+          industries: 'FMCG · Consumer Goods · Manufacturing · Data Analytics',
           period: 'Apr 2013 – Jun 2015',
           location: 'Mexico City, Mexico',
           highlights: [
@@ -159,8 +162,6 @@ const translations = {
       title: 'Contact',
       subtitle: "Let's build something great together",
       email_label: 'Email',
-      location_label: 'Location',
-      location_value: 'Spain & Poland',
       whatsapp_label: 'WhatsApp',
       form_name: 'Your Name',
       form_email: 'Your Email',
@@ -200,7 +201,6 @@ const translations = {
       title: 'Sobre Mí',
       subtitle: 'Apasionado por construir sistemas cloud escalables y seguros',
       text: 'Ingeniero Multi-Cloud DevOps/MLOps e Infraestructura, Arquitecto de Soluciones Cloud y Especialista en CyberSeguridad con amplia experiencia en el diseño, despliegue y gestión de sistemas distribuidos escalables. Trabajo bajo el Well-Architected Framework en AWS, Azure, GCP y Oracle Cloud, especializándome en eficiencia de rendimiento, optimización de costos y el despliegue de infraestructuras híbridas robustas. Competente en pipelines CI/CD, infraestructura como código, orquestación de contenedores y frameworks MLOps.',
-      location: 'Basado en España y Polonia',
       availability: 'Abierto a oportunidades globales',
     },
     experience: {
@@ -209,7 +209,8 @@ const translations = {
       jobs: [
         {
           role: 'Ingeniero MLOps/DevOps & Arquitecto de Soluciones Cloud',
-          company: 'Contratista B2B (HSBC & DSV)',
+          company: 'Contractor B2B',
+          industries: 'Banca · Servicios Financieros · Logística · Cadena de Suministro',
           period: 'Oct 2022 – Presente',
           location: 'Polonia / España',
           highlights: [
@@ -229,6 +230,7 @@ const translations = {
         {
           role: 'Ingeniero DevOps & Arquitecto de Soluciones Cloud',
           company: 'Tata Consultancy Services (TCS)',
+          industries: 'Consultoría IT · Servicios Tecnológicos · Soluciones Enterprise',
           period: 'Ago 2020 – Oct 2022',
           location: 'Remoto',
           highlights: [
@@ -244,6 +246,7 @@ const translations = {
         {
           role: 'Manager Ingeniero DevOps & Ingeniero Cloud',
           company: 'Equifax',
+          industries: 'Servicios Financieros · Crédito y Riesgo · Analítica de Datos',
           period: 'Jun 2018 – Feb 2020',
           location: 'Remoto',
           highlights: [
@@ -260,6 +263,7 @@ const translations = {
         {
           role: 'Desarrollador de Software & Ingeniero de Soporte de Bases de Datos',
           company: 'Mondelez International',
+          industries: 'FMCG · Bienes de Consumo · Manufactura · Analítica de Datos',
           period: 'Abr 2013 – Jun 2015',
           location: 'Ciudad de México, México',
           highlights: [
@@ -332,8 +336,6 @@ const translations = {
       title: 'Contacto',
       subtitle: 'Construyamos algo grande juntos',
       email_label: 'Correo',
-      location_label: 'Ubicación',
-      location_value: 'España y Polonia',
       whatsapp_label: 'WhatsApp',
       form_name: 'Tu Nombre',
       form_email: 'Tu Correo',

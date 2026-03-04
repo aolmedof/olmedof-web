@@ -510,17 +510,130 @@ img { max-width: 100%; }
   box-shadow: 0 4px 16px rgba(212, 168, 85, 0.35);
 }
 
-.ai-response {
-  margin-top: 16px;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-subtle);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 16px 20px;
-  font-size: 0.95rem;
+/* Chat history */
+.chat-history {
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 2px 0;
+  scroll-behavior: smooth;
+}
+
+.chat-history:empty { display: none; }
+
+.chat-bubble-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.chat-bubble-wrapper.user { justify-content: flex-end; }
+.chat-bubble-wrapper.bot  { justify-content: flex-start; }
+
+.chat-bubble {
+  max-width: 84%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  animation: bubbleFadeIn 0.3s ease forwards;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chat-bubble-user {
+  background: #1a365d;
+  color: var(--text-primary);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble-bot {
+  background: #1e293b;
   color: var(--text-secondary);
-  line-height: 1.75;
-  animation: fadeInUp 0.4s ease forwards;
+  border-left: 3px solid var(--accent);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble-bot .bot-sparkle {
+  color: var(--accent);
+  margin-right: 5px;
+  font-style: normal;
+}
+
+/* Thinking dots */
+.chat-thinking {
+  display: flex;
+  gap: 5px;
+  padding: 14px 18px;
+  background: #1e293b;
+  border-left: 3px solid var(--accent);
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+  align-items: center;
+}
+
+.chat-thinking span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: thinkingBounce 1.2s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.chat-thinking span:nth-child(2) { animation-delay: 0.2s; }
+.chat-thinking span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Quick suggestions */
+.quick-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.quick-btn {
+  background: transparent;
+  border: 1.5px solid rgba(212, 168, 85, 0.3);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.77rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.2px;
+}
+
+.quick-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* Rate info */
+.ai-rate-info {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+  min-height: 1.1em;
+}
+
+/* Blinking cursor in bot typewriter */
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 0.7s step-end infinite;
 }
 
 /* ════════════════════════════════════════
@@ -721,6 +834,28 @@ img { max-width: 100%; }
   font-size: 0.7rem;
   margin-top: 5px;
   flex-shrink: 0;
+}
+
+/* Industry tags in timeline */
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.timeline-item.left  .industry-tags { justify-content: flex-end; }
+.timeline-item.right .industry-tags { justify-content: flex-start; }
+
+.industry-tag {
+  font-size: 0.71rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 12px;
+  background: rgba(212, 168, 85, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(212, 168, 85, 0.22);
+  letter-spacing: 0.2px;
 }
 
 /* ════════════════════════════════════════
@@ -1247,6 +1382,16 @@ footer {
 @keyframes bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+@keyframes bubbleFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes thinkingBounce {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.5; }
+  40%           { transform: translateY(-6px); opacity: 1;   }
 }
 
 /* ════════════════════════════════════════

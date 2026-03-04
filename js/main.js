@@ -168,8 +168,25 @@ const aiPlaceholders = {
   ],
 };
 
-const AI_RESPONSE = '🚀 AI-powered responses coming soon! This feature will use Claude AI to answer questions about my professional experience. For now, feel free to explore my portfolio below or contact me directly.';
-const AI_RESPONSE_ES = '🚀 ¡Respuestas con IA próximamente! Esta función usará Claude AI para responder preguntas sobre mi experiencia profesional. Por ahora, explora mi portfolio o contáctame directamente.';
+/* ── Quick suggestion bilingual data ── */
+const quickBtnData = {
+  years: {
+    en: { q: 'How many years of experience does Arturo have?', label: 'Years of experience?' },
+    es: { q: '¿Cuántos años de experiencia tiene Arturo?',     label: '¿Años de experiencia?' },
+  },
+  certs: {
+    en: { q: 'What certifications does Arturo have?', label: 'Certifications' },
+    es: { q: '¿Qué certificaciones tiene Arturo?',    label: 'Certificaciones' },
+  },
+  stack: {
+    en: { q: 'What is his tech stack?',               label: 'Tech stack' },
+    es: { q: '¿Cuál es su stack tecnológico?',        label: 'Tech stack' },
+  },
+  visa: {
+    en: { q: 'Does Arturo have EU work visa?',            label: 'Visa status' },
+    es: { q: '¿Tiene Arturo visa de trabajo para la UE?', label: 'Estado de visa' },
+  },
+};
 
 /* ── Typing Effect ── */
 class TypeWriter {
@@ -242,7 +259,6 @@ function renderAbout(t) {
   document.querySelector('[data-i18n="about.title"]').textContent       = t.about.title;
   document.querySelector('[data-i18n="about.subtitle"]').textContent    = t.about.subtitle;
   document.querySelector('[data-i18n="about.text"]').textContent        = t.about.text;
-  document.querySelector('[data-i18n="about.location"]').textContent    = t.about.location;
   document.querySelector('[data-i18n="about.availability"]').textContent = t.about.availability;
 }
 
@@ -260,12 +276,17 @@ function renderExperience(t) {
     item.setAttribute('data-aos', 'fade-up');
     item.setAttribute('data-aos-delay', `${i * 100}`);
 
+    const industryTagsHtml = job.industries
+      ? `<div class="industry-tags">${job.industries.split(' · ').map(ind => `<span class="industry-tag">${ind}</span>`).join('')}</div>`
+      : '';
+
     item.innerHTML = `
       <div class="timeline-content">
         <div class="timeline-dot"></div>
         <span class="timeline-period">${job.period}</span>
         <h3 class="timeline-role">${job.role}</h3>
         <h4 class="timeline-company">${job.company}</h4>
+        ${industryTagsHtml}
         <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> ${job.location}</span>
         <ul class="timeline-highlights">
           ${job.highlights.map(h => `<li><i class="fa-solid fa-chevron-right"></i> ${h}</li>`).join('')}
@@ -421,8 +442,6 @@ function renderContact(t) {
   document.querySelector('[data-i18n="contact.title"]').textContent          = t.contact.title;
   document.querySelector('[data-i18n="contact.subtitle"]').textContent       = t.contact.subtitle;
   document.querySelector('[data-i18n="contact.email_label"]').textContent    = t.contact.email_label;
-  document.querySelector('[data-i18n="contact.location_label"]').textContent = t.contact.location_label;
-  document.querySelector('[data-i18n="contact.location_value"]').textContent = t.contact.location_value;
   document.querySelector('[data-i18n="contact.whatsapp_label"]').textContent = t.contact.whatsapp_label;
   document.querySelector('[data-i18n="contact.form_name"]').placeholder      = t.contact.form_name;
   document.querySelector('[data-i18n="contact.form_email"]').placeholder     = t.contact.form_email;
@@ -446,59 +465,168 @@ function applyTranslations(lang) {
   renderEducation(t);
   renderContact(t);
   renderFooter(t);
-  updateAIPromptPlaceholder(lang);
+  updateAIPromptBar(lang);
 }
 
-/* ── AI Prompt Bar ── */
+/* ── AI Prompt Bar — Bot Integration ── */
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function addUserBubble(text) {
+  const history = document.getElementById('chat-history');
+  if (!history) return;
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-bubble-wrapper user';
+  wrapper.innerHTML = `<div class="chat-bubble chat-bubble-user">${escapeHtml(text)}</div>`;
+  history.appendChild(wrapper);
+  history.scrollTop = history.scrollHeight;
+}
+
+function addThinkingBubble() {
+  const history = document.getElementById('chat-history');
+  if (!history) return null;
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-bubble-wrapper bot';
+  wrapper.innerHTML = `<div class="chat-thinking"><span></span><span></span><span></span></div>`;
+  history.appendChild(wrapper);
+  history.scrollTop = history.scrollHeight;
+  return wrapper;
+}
+
+function removeThinkingBubble(el) {
+  if (el && el.parentNode) el.parentNode.removeChild(el);
+}
+
+function addBotBubble(text, animate) {
+  const history = document.getElementById('chat-history');
+  if (!history) return;
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-bubble-wrapper bot';
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble chat-bubble-bot';
+  bubble.innerHTML = '<span class="bot-sparkle">✦</span>';
+  wrapper.appendChild(bubble);
+  history.appendChild(wrapper);
+  history.scrollTop = history.scrollHeight;
+
+  if (animate === false) {
+    bubble.appendChild(document.createTextNode(text));
+    return;
+  }
+
+  // Typewriter: 25ms/char
+  let i = 0;
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor-blink';
+  bubble.appendChild(cursor);
+
+  function typeChar() {
+    if (i < text.length) {
+      cursor.insertAdjacentText('beforebegin', text[i]);
+      i++;
+      history.scrollTop = history.scrollHeight;
+      setTimeout(typeChar, 25);
+    } else {
+      cursor.remove();
+    }
+  }
+  typeChar();
+}
+
+function updateRateCounter() {
+  const el = document.getElementById('ai-rate-info');
+  if (!el || typeof BotEngine === 'undefined') return;
+  const remaining = BotEngine.getRemainingCount();
+  const max = BotEngine.getMaxCount();
+  el.textContent = remaining <= 5
+    ? (currentLang === 'es'
+        ? `${remaining}/${max} preguntas restantes`
+        : `${remaining}/${max} questions remaining`)
+    : '';
+}
+
 function handleSubmit(query) {
-  const responseEl = document.getElementById('ai-response');
-  if (!responseEl) return;
+  if (!query || !query.trim()) return;
+  if (typeof BotEngine === 'undefined') return;
 
-  if (!query.trim()) return;
+  const input = document.getElementById('ai-input');
+  if (input) input.value = '';
 
-  // Show typing indicator
-  responseEl.removeAttribute('hidden');
-  responseEl.textContent = '...';
+  const limit = BotEngine.checkRateLimit();
+  if (!limit.allowed) {
+    addUserBubble(query);
+    addBotBubble(
+      currentLang === 'es'
+        ? 'Has alcanzado el límite de preguntas. Recarga la página para continuar.'
+        : 'You have reached the question limit. Reload the page to continue.'
+    );
+    return;
+  }
+
+  addUserBubble(query);
+  const thinkingEl = addThinkingBubble();
 
   setTimeout(() => {
-    displayResponse(currentLang === 'es' ? AI_RESPONSE_ES : AI_RESPONSE);
-  }, 800);
-}
-
-function displayResponse(text) {
-  const responseEl = document.getElementById('ai-response');
-  if (!responseEl) return;
-  responseEl.removeAttribute('hidden');
-  responseEl.textContent = text;
+    BotEngine.incrementCount();
+    const L = BotEngine.detectLanguage(query);
+    const response = BotEngine.answer(query, L);
+    removeThinkingBubble(thinkingEl);
+    addBotBubble(response);
+    updateRateCounter();
+  }, 600);
 }
 
 let aiPlaceholderIndex = 0;
 let aiPlaceholderInterval = null;
 
-function updateAIPromptPlaceholder(lang) {
+function updateAIPromptBar(lang) {
   const input = document.getElementById('ai-input');
-  if (!input) return;
-  const questions = aiPlaceholders[lang] || aiPlaceholders.en;
-  input.placeholder = questions[aiPlaceholderIndex % questions.length];
+  if (input) {
+    const questions = aiPlaceholders[lang] || aiPlaceholders.en;
+    input.placeholder = questions[aiPlaceholderIndex % questions.length];
+  }
+  const L = lang || 'en';
+  document.querySelectorAll('.quick-btn[data-key]').forEach(btn => {
+    const key = btn.dataset.key;
+    if (quickBtnData[key] && quickBtnData[key][L]) {
+      btn.dataset.q    = quickBtnData[key][L].q;
+      btn.textContent  = quickBtnData[key][L].label;
+    }
+  });
 }
 
 function setupAIPromptBar() {
-  const input  = document.getElementById('ai-input');
+  const input   = document.getElementById('ai-input');
   const sendBtn = document.getElementById('ai-send');
   if (!input || !sendBtn) return;
 
   // Rotate placeholder every 3.5s
-  const questions = () => aiPlaceholders[currentLang] || aiPlaceholders.en;
+  const getQ = () => aiPlaceholders[currentLang] || aiPlaceholders.en;
   aiPlaceholderInterval = setInterval(() => {
-    aiPlaceholderIndex = (aiPlaceholderIndex + 1) % questions().length;
-    input.placeholder = questions()[aiPlaceholderIndex];
+    aiPlaceholderIndex = (aiPlaceholderIndex + 1) % getQ().length;
+    input.placeholder = getQ()[aiPlaceholderIndex];
   }, 3500);
 
-  sendBtn.addEventListener('click', () => handleSubmit(input.value));
-
+  sendBtn.addEventListener('click', () => handleSubmit(input.value.trim()));
   input.addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSubmit(input.value);
+    if (e.key === 'Enter') handleSubmit(input.value.trim());
   });
+
+  // Quick suggestion buttons
+  document.querySelectorAll('.quick-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = btn.dataset.q;
+      if (q) handleSubmit(q);
+    });
+  });
+
+  // Show greeting on load (no rate-limit increment)
+  if (typeof BotEngine !== 'undefined') {
+    const greeting = BotEngine.answer('hi', currentLang);
+    addBotBubble(greeting, false);
+  }
 }
 
 /* ── Language Toggle ── */
