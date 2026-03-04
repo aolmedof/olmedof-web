@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Page Not Found | Arturo O. Flores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root {
+      --bg: #0a192f;
+      --accent: #d4a855;
+      --text: #e6f1ff;
+      --muted: #8892b0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+    .four04-code {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent) 0%, #e8c278 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 40px rgba(212, 168, 85, 0.3));
+    }
+    .four04-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .four04-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .four04-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    .four04-link:hover {
+      background: #e8c278;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 168, 85, 0.35);
+    }
+    .geo-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .geo-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 168, 85, 0.08);
+    }
+    .geo-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; left: -200px; }
+    .geo-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; right: -100px; border-color: rgba(212, 168, 85, 0.05); }
+    .geo-circle:nth-child(3) { width: 200px; height: 200px; bottom: 20%; left: 10%; border-color: rgba(212, 168, 85, 0.04); }
+  </style>
+</head>
+<body>
+
+  <div class="geo-bg" aria-hidden="true">
+    <div class="geo-circle"></div>
+    <div class="geo-circle"></div>
+    <div class="geo-circle"></div>
+  </div>
+
+  <div class="four04-code">404</div>
+  <h1 class="four04-title">Page Not Found</h1>
+  <p class="four04-desc">
+    This page doesn't exist or has been moved.<br />
+    Let's get you back on track.
+  </p>
+  <a href="/" class="four04-link">
+    <i class="fa-solid fa-house"></i>
+    Back to Home
+  </a>
+
+</body>
+</html>

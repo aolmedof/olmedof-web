@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arturo O. Flores – Multi-Cloud DevOps/MLOps Engineer, Cloud Solution Architect & CyberSecurity Specialist" />
+  <meta property="og:title" content="Arturo O. Flores | Cloud & DevOps Engineer" />
+  <meta property="og:description" content="Multi-Cloud DevOps/MLOps & Infrastructure Engineer, Cloud Solution Architect, and CyberSecurity Specialist." />
+  <meta property="og:url" content="https://arturo.olmedof.com" />
+  <title>Arturo O. Flores | Cloud & DevOps Engineer</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Arturo<span>.dev</span></a>
+
+      <ul id="nav-menu" role="list">
+        <li><a href="#about"          class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="#experience"     class="nav-link" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#certifications" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+        <li><a href="#skills"         class="nav-link" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#education"      class="nav-link" data-i18n="nav.education">Education</a></li>
+        <li><a href="#contact"        class="nav-link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="lang-toggle" aria-label="Toggle language">ES</button>
+        <button id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-gradient" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-greeting" data-i18n="hero.greeting">Hi, I'm</p>
+
+      <h1 class="hero-name">
+        Arturo <span class="accent">O. Flores</span>
+      </h1>
+
+      <div class="hero-typing-wrapper" aria-live="polite">
+        <span id="typing-text"></span>
+      </div>
+
+      <p class="hero-title" data-i18n="hero.title">
+        Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer
+      </p>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Cloud Solution Architect | CyberSecurity Specialist
+      </p>
+
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">
+          <i class="fa-solid fa-briefcase"></i>
+          <span data-i18n="hero.cta_experience">View Experience</span>
+        </a>
+        <a href="#" class="btn btn-outline" download>
+          <i class="fa-solid fa-download"></i>
+          <span data-i18n="hero.cta_cv">Download CV</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-photo-wrapper" data-aos="fade-right">
+          <div class="about-photo-placeholder" aria-label="Profile photo placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="about-badges">
+            <div class="about-badge">
+              <i class="fa-solid fa-location-dot"></i>
+              <span data-i18n="about.location">Based in Spain &amp; Poland</span>
+            </div>
+            <div class="about-badge">
+              <i class="fa-solid fa-circle-check"></i>
+              <span data-i18n="about.availability">Open to global opportunities</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-block" data-aos="fade-left">
+          <span class="section-tag">About</span>
+          <h2 data-i18n="about.title">About Me</h2>
+          <p class="about-subtitle" data-i18n="about.subtitle">
+            Passionate about building scalable, secure cloud systems
+          </p>
+          <p data-i18n="about.text">
+            Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer, Cloud Solution Architect,
+            and CyberSecurity Specialist with deep expertise in designing, deploying, and
+            managing scalable distributed systems.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career</span>
+        <h2 class="section-title" data-i18n="experience.title">Experience</h2>
+        <p class="section-subtitle" data-i18n="experience.subtitle">
+          A decade of building cloud-native infrastructure
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div id="timeline-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CERTIFICATIONS
+  ═══════════════════════════════════════════ -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title" data-i18n="certifications.title">Certifications</h2>
+        <p class="section-subtitle" data-i18n="certifications.subtitle">
+          Industry-recognized credentials across major cloud platforms
+        </p>
+      </div>
+
+      <div id="certs-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════ -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Technologies</span>
+        <h2 class="section-title" data-i18n="skills.title">Skills</h2>
+        <p class="section-subtitle" data-i18n="skills.subtitle">
+          Technologies and tools I work with daily
+        </p>
+      </div>
+
+      <div id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════════ -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academia</span>
+        <h2 class="section-title" data-i18n="education.title">Education</h2>
+        <p class="section-subtitle" data-i18n="education.subtitle">
+          Academic foundation in Computer Science and Engineering
+        </p>
+      </div>
+
+      <div id="education-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+        <p class="section-subtitle" data-i18n="contact.subtitle">
+          Let's build something great together
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info" data-aos="fade-right">
+          <h3 class="contact-info-title">Let's connect</h3>
+          <p class="contact-info-desc">
+            Open to new opportunities, consulting engagements, and technical collaborations worldwide.
+          </p>
+
+          <a href="mailto:arturo.olmedof@hotmail.com" class="contact-item">
+            <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-item-label" data-i18n="contact.email_label">Email</div>
+              <div class="contact-item-value">arturo.olmedof@hotmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <div class="contact-item-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">linkedin.com/in/arturo-olmedof</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/34000000000" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-item-label" data-i18n="contact.whatsapp_label">WhatsApp</div>
+              <div class="contact-item-value">Available on request</div>
+            </div>
+          </a>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="contact-item-label" data-i18n="contact.location_label">Location</div>
+              <div class="contact-item-value" data-i18n="contact.location_value">Spain &amp; Poland</div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form" data-aos="fade-left" novalidate>
+          <div class="form-group">
+            <input
+              type="text"
+              name="name"
+              data-i18n="contact.form_name"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              data-i18n="contact.form_email"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              name="message"
+              data-i18n="contact.form_message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span data-i18n="contact.form_send">Send Message</span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/aolmedof" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:arturo.olmedof@hotmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+        <p class="footer-copyright" data-i18n="footer.copyright">
+          &copy; 2025 Arturo O. Flores. All rights reserved.
+        </p>
+        <p class="footer-built" data-i18n="footer.built">
+          Built with cloud technologies and deployed on AWS
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Translations -->
+  <script src="js/translations.js"></script>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
