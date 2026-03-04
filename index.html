@@ -75,39 +75,69 @@
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="hero-gradient" aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <p class="hero-greeting" data-i18n="hero.greeting">Hi, I'm</p>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-greeting" data-i18n="hero.greeting">Hi, I'm</p>
 
-      <h1 class="hero-name">
-        Arturo <span class="accent">O. Flores</span>
-      </h1>
+        <h1 class="hero-name">
+          Arturo <span class="accent">O. Flores</span>
+        </h1>
 
-      <div class="hero-typing-wrapper" aria-live="polite">
-        <span id="typing-text"></span>
+        <div class="hero-typing-wrapper" aria-live="polite">
+          <span id="typing-text"></span>
+        </div>
+
+        <p class="hero-title" data-i18n="hero.title">
+          Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer
+        </p>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Cloud Solution Architect | CyberSecurity Specialist
+        </p>
+
+        <div class="hero-cta">
+          <a href="#experience" class="btn btn-primary">
+            <i class="fa-solid fa-briefcase"></i>
+            <span data-i18n="hero.cta_experience">View Experience</span>
+          </a>
+          <a href="#" id="cv-btn" class="btn btn-outline">
+            <i class="fa-solid fa-download"></i>
+            <span data-i18n="hero.cta_cv">Download CV</span>
+          </a>
+        </div>
       </div>
 
-      <p class="hero-title" data-i18n="hero.title">
-        Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer
-      </p>
-      <p class="hero-subtitle" data-i18n="hero.subtitle">
-        Cloud Solution Architect | CyberSecurity Specialist
-      </p>
-
-      <div class="hero-cta">
-        <a href="#experience" class="btn btn-primary">
-          <i class="fa-solid fa-briefcase"></i>
-          <span data-i18n="hero.cta_experience">View Experience</span>
-        </a>
-        <a href="#" id="cv-btn" class="btn btn-outline">
-          <i class="fa-solid fa-download"></i>
-          <span data-i18n="hero.cta_cv">Download CV</span>
-        </a>
+      <div class="hero-photo">
+        <img src="img/profile_photo.jpeg" alt="Arturo O. Flores" />
       </div>
     </div>
 
     <div class="hero-scroll" aria-hidden="true">
       <span>scroll</span>
       <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       AI PROMPT BAR
+  ═══════════════════════════════════════════ -->
+  <section id="ai-prompt">
+    <div class="container">
+      <div class="ai-prompt-card" data-aos="fade-up">
+        <div class="ai-prompt-header">
+          <i class="fa-solid fa-robot"></i>
+          <span class="ai-prompt-title">Ask me anything about Arturo</span>
+          <span class="ai-powered-badge">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Powered by Claude AI
+          </span>
+        </div>
+        <div class="ai-input-wrapper">
+          <input type="text" id="ai-input" autocomplete="off" aria-label="Ask a question" />
+          <button id="ai-send" aria-label="Send">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+        <div id="ai-response" class="ai-response" hidden></div>
+      </div>
     </div>
   </section>
 
@@ -119,9 +149,7 @@
       <div class="about-grid">
 
         <div class="about-photo-wrapper" data-aos="fade-right">
-          <div class="about-photo-placeholder" aria-label="Profile photo placeholder">
-            <i class="fa-solid fa-user"></i>
-          </div>
+          <img src="img/profile_photo.jpeg" alt="Arturo O. Flores" class="about-photo-img" />
           <div class="about-badges">
             <div class="about-badge">
               <i class="fa-solid fa-location-dot"></i>
@@ -183,7 +211,7 @@
         </p>
       </div>
 
-      <div id="certs-grid"></div>
+      <div id="certs-container"></div>
     </div>
   </section>
 
@@ -200,7 +228,10 @@
         </p>
       </div>
 
-      <div id="skills-grid"></div>
+      <div class="skills-layout">
+        <div id="skills-dots"></div>
+        <div id="skills-grid"></div>
+      </div>
     </div>
   </section>
 

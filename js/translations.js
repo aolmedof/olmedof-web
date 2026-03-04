@@ -16,12 +16,11 @@ const translations = {
       cta_experience: 'View Experience',
       cta_cv: 'Download CV',
       typing_roles: [
-        'DevOps Engineer',
-        'MLOps Engineer',
+        'Multi-Cloud DevOps/MLOps Engineer',
         'Cloud Solution Architect',
-        'Infrastructure Engineer',
         'CyberSecurity Specialist',
-        'SRE Practitioner',
+        'Infrastructure Engineer',
+        'Data Specialist',
       ],
     },
     about: {
@@ -105,10 +104,14 @@ const translations = {
       subtitle: 'Industry-recognized credentials across major cloud platforms',
       valid: 'Valid',
       verify: 'Verify',
+      type_official:     'Official',
+      type_course:       'Course',
+      type_in_progress:  'In Progress',
     },
     skills: {
       title: 'Skills',
       subtitle: 'Technologies and tools I work with daily',
+      proficiency_title: 'Proficiency',
       categories: [
         { name: 'Cloud', color: '#FF9900', items: ['AWS', 'Azure', 'GCP', 'Oracle Cloud'] },
         { name: 'Containers', color: '#326CE5', items: ['Kubernetes', 'Docker', 'OpenShift', 'Helm', 'Kustomize', 'KServe'] },
@@ -186,12 +189,11 @@ const translations = {
       cta_experience: 'Ver Experiencia',
       cta_cv: 'Descargar CV',
       typing_roles: [
-        'Ingeniero DevOps',
-        'Ingeniero MLOps',
+        'Ingeniero Multi-Cloud DevOps/MLOps',
         'Arquitecto de Soluciones Cloud',
-        'Ingeniero de Infraestructura',
         'Especialista en CyberSeguridad',
-        'Practicante SRE',
+        'Ingeniero de Infraestructura',
+        'Especialista en Datos',
       ],
     },
     about: {
@@ -275,10 +277,14 @@ const translations = {
       subtitle: 'Credenciales reconocidas por la industria en las principales plataformas cloud',
       valid: 'Válida',
       verify: 'Verificar',
+      type_official:     'Oficial',
+      type_course:       'Curso',
+      type_in_progress:  'En Progreso',
     },
     skills: {
       title: 'Habilidades',
       subtitle: 'Tecnologías y herramientas con las que trabajo diariamente',
+      proficiency_title: 'Nivel',
       categories: [
         { name: 'Cloud', color: '#FF9900', items: ['AWS', 'Azure', 'GCP', 'Oracle Cloud'] },
         { name: 'Contenedores', color: '#326CE5', items: ['Kubernetes', 'Docker', 'OpenShift', 'Helm', 'Kustomize', 'KServe'] },

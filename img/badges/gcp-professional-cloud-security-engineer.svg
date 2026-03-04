@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0d1b2a"/><stop offset="100%" style="stop-color:#1a2a40"/></linearGradient></defs>
+  <rect width="340" height="340" rx="20" fill="url(#g)"/>
+  <circle cx="170" cy="170" r="148" fill="none" stroke="#4285F4" stroke-width="6" stroke-dasharray="16 8"/>
+  <text x="170" y="118" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle" fill="#4285F4">Google Cloud</text>
+  <text x="170" y="164" font-family="Arial" font-size="19" font-weight="bold" text-anchor="middle" fill="#fff">Professional</text>
+  <text x="170" y="196" font-family="Arial" font-size="17" text-anchor="middle" fill="#ddd">Cloud Security</text>
+  <text x="170" y="228" font-family="Arial" font-size="16" text-anchor="middle" fill="#aaa">Engineer</text>
+  <text x="170" y="262" font-family="Arial" font-size="14" text-anchor="middle" fill="#888">Certified</text>
+</svg>
