@@ -1,0 +1,25 @@
+version: 0.2
+
+# AWS CodeBuild buildspec for arturo.olmedof.com
+# Environment variables injected by Terraform CodeBuild project:
+#   S3_BUCKET                  — destination bucket (arturo.olmedof.com)
+#   CLOUDFRONT_DISTRIBUTION_ID — distribution to invalidate after deploy
+
+phases:
+  build:
+    commands:
+      - echo "Syncing static files to S3..."
+      - |
+        aws s3 sync . s3://$S3_BUCKET \
+          --delete \
+          --exclude ".git/*" \
+          --exclude "buildspec.yml" \
+          --exclude "README.md" \
+          --exclude ".gitignore"
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+      - echo "Deployment complete — https://arturo.olmedof.com"
+
+artifacts:
+  files:
+    - "**/*"

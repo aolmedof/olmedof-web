@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Arturo O. Flores – Multi-Cloud DevOps/MLOps Engineer, Cloud Solution Architect & CyberSecurity Specialist" />
-  <meta property="og:title" content="Arturo O. Flores | Cloud & DevOps Engineer" />
-  <meta property="og:description" content="Multi-Cloud DevOps/MLOps & Infrastructure Engineer, Cloud Solution Architect, and CyberSecurity Specialist." />
+  <meta name="description" content="Arturo O. Flores – Multi-Cloud DevOps/MLOps Engineer, Cloud Solution Architect & CyberSecurity Specialist based in Spain and Poland." />
+  <meta name="author" content="Arturo O. Flores" />
+  <meta name="theme-color" content="#0a192f" />
+  <link rel="canonical" href="https://arturo.olmedof.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Arturo O. Flores | Cloud &amp; DevOps Engineer" />
+  <meta property="og:description" content="Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer, Cloud Solution Architect, and CyberSecurity Specialist." />
   <meta property="og:url" content="https://arturo.olmedof.com" />
-  <title>Arturo O. Flores | Cloud & DevOps Engineer</title>
+  <meta property="og:image" content="https://arturo.olmedof.com/img/og-image.jpg" />
+  <meta property="og:site_name" content="Arturo O. Flores" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arturo O. Flores | Cloud &amp; DevOps Engineer" />
+  <meta name="twitter:description" content="Multi-Cloud DevOps/MLOps &amp; Infrastructure Engineer, Cloud Solution Architect, and CyberSecurity Specialist." />
+
+  <title>Arturo O. Flores | Cloud &amp; DevOps Engineer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,8 +36,8 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- AOS 2.3.4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYc8/AXwEkpnhJ3OMdYeqHxJB5D0e4X6lVkGa6G7eFoFLxMFBM3xbHcpfa5T0TJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -82,7 +99,7 @@
           <i class="fa-solid fa-briefcase"></i>
           <span data-i18n="hero.cta_experience">View Experience</span>
         </a>
-        <a href="#" class="btn btn-outline" download>
+        <a href="assets/cv.pdf" id="cv-btn" class="btn btn-outline" download="Arturo_Flores_CV.pdf">
           <i class="fa-solid fa-download"></i>
           <span data-i18n="hero.cta_cv">Download CV</span>
         </a>
@@ -234,7 +251,7 @@
             </div>
           </a>
 
-          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="LinkedIn profile">
             <div class="contact-item-icon"><i class="fa-brands fa-linkedin"></i></div>
             <div>
               <div class="contact-item-label">LinkedIn</div>
@@ -242,7 +259,8 @@
             </div>
           </a>
 
-          <a href="https://wa.me/34000000000" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <!-- TODO: replace with real WhatsApp number → https://wa.me/COUNTRYCODENUMBER -->
+          <a href="https://wa.me/34000000000" target="_blank" rel="noopener noreferrer" class="contact-item" aria-label="WhatsApp">
             <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
               <div class="contact-item-label" data-i18n="contact.whatsapp_label">WhatsApp</div>
@@ -303,10 +321,10 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-social" aria-label="Social links">
-          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://linkedin.com/in/arturo-olmedof" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="https://github.com/aolmedof" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/aolmedof" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
             <i class="fa-brands fa-github"></i>
           </a>
           <a href="mailto:arturo.olmedof@hotmail.com" aria-label="Email">
@@ -323,8 +341,8 @@
     </div>
   </footer>
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- AOS 2.3.4 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- Translations -->
   <script src="js/translations.js"></script>

@@ -461,23 +461,66 @@ function setupParticles() {
   draw();
 }
 
-/* ── Contact form ── */
+/* ── Toast notification ── */
+function showToast(message, duration = 6000) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('toast-visible');
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => toast.classList.remove('toast-visible'), duration);
+}
+
+/* ── CV Button ── */
+function setupCVButton() {
+  const btn = document.getElementById('cv-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', e => {
+    // Check if the CV file exists by making a HEAD request
+    fetch(btn.href, { method: 'HEAD' })
+      .then(res => {
+        if (!res.ok) throw new Error('not found');
+        // File exists — allow the default download to proceed
+      })
+      .catch(() => {
+        e.preventDefault();
+        const msg =
+          currentLang === 'en'
+            ? 'CV coming soon — contact me directly at arturo.olmedof@hotmail.com'
+            : 'CV próximamente — contáctame directamente en arturo.olmedof@hotmail.com';
+        showToast(msg);
+      });
+  });
+}
+
+/* ── Contact form → mailto ── */
 function setupContactForm() {
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
-    btn.disabled = true;
-    btn.style.background = 'var(--accent)';
-    btn.style.color = '#0a192f';
-    setTimeout(() => {
-      btn.innerHTML = translations[currentLang].contact.form_send;
-      btn.disabled = false;
-      btn.style.background = '';
-      btn.style.color = '';
-      form.reset();
-    }, 3000);
+
+    const name    = form.querySelector('[name="name"]').value.trim();
+    const email   = form.querySelector('[name="email"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+
+    const subject = `Contact from ${name}`;
+    const body    = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailto  = `mailto:arturo.olmedof@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
+    const msg =
+      currentLang === 'en'
+        ? 'Your email client has opened with a pre-filled message. If it didn\'t open, email me directly at arturo.olmedof@hotmail.com'
+        : 'Tu cliente de correo se ha abierto con el mensaje listo. Si no funcionó, escríbeme a arturo.olmedof@hotmail.com';
+    showToast(msg, 8000);
+
+    form.reset();
   });
 }
 
@@ -514,6 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNavbar();
   setupScrollSpy();
   setupParticles();
+  setupCVButton();
   setupContactForm();
   setupSmoothScroll();
 });

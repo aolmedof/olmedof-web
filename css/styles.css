@@ -942,6 +942,35 @@ footer {
 }
 
 /* ════════════════════════════════════════
+   TOAST NOTIFICATION
+═══════════════════════════════════════ */
+#toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 14px 24px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: min(520px, calc(100vw - 48px));
+  text-align: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: var(--shadow);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#toast.toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media (max-width: 900px) {
